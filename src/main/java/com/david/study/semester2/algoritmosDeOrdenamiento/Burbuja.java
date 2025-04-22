@@ -2,8 +2,8 @@ package com.david.study.semester2.algoritmosDeOrdenamiento;
 
 
 // TODO: terminar el ejercicio
-public class Bornuja {
-    public static void bornuja(int[] listDesordenada) {
+public class Burbuja {
+    public static void burbuja (int[] listDesordenada) {
         boolean orden = true;
         while(orden) {
             for (int i=0; i<listDesordenada.length-1; i++) {

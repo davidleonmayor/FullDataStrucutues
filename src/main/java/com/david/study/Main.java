@@ -15,7 +15,7 @@ public class Main {
         // ComparacionAlgoritmos.test();
         int[] list = new int[] {1, 3, 5, 2, 4, 5};
 
-        //Bornuja.bornuja(list);
+        //Burbuja.burbuja(list);
 //        Seleccion seleccion = new Seleccion();
 //        seleccion.seleccion(list);
 //
