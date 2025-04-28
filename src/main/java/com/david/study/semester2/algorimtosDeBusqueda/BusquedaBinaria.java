@@ -1,4 +1,4 @@
-package com.david.study.semester2.metodoDeOrdenamiento;
+package com.david.study.semester2.algorimtosDeBusqueda;
 
 import com.david.study.semester2.algoritmosDeOrdenamiento.Shell;
 

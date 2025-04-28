@@ -4,11 +4,8 @@ package com.david.study;
 //import com.david.study.semester2.algoritmosDeOrdenamiento.Seleccion;
 //import com.david.study.semester2.algoritmosDeOrdenamiento.Shell;
 
-import com.david.study.semester2.algoritmosDeOrdenamiento.QuickSort;
-import com.david.study.semester2.metodoDeOrdenamiento.BusquedaBinaria;
-import com.david.study.semester2.metodosOrdenamientoCuadratico.DivideyV;
-
-import java.util.Arrays;
+import com.david.study.semester2.algorimtosDeBusqueda.BusquedaBinaria;
+import com.david.study.semester2.juegoAhorcado.Juego;
 
 public class Main {
     public static void main(String[] args) {
@@ -32,6 +29,10 @@ public class Main {
 //        System.out.println("Now " + Arrays.toString(listQuick));
 
         BusquedaBinaria busquedaBinaria = new BusquedaBinaria();
-        busquedaBinaria.arregloAleatorio();
+        //busquedaBinaria.arregloAleatorio();
+
+        Juego juego = new Juego();
+        juego.init();
+
     }
 }

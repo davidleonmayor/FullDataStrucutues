@@ -93,6 +93,28 @@ public class Insert {
     }
 
     /**
+     * Reads a single character (letter).
+     * Keeps asking until the user inputs exactly one character.
+     * @param message Prompt message for the input
+     * @return Single character entered by the user
+     */
+    public static char readChar(String message) {
+        while (true) {
+            System.out.print(message);
+            String input = scanner.nextLine().trim();
+
+            // Validar que sea solo un carácter
+            if (input.length() != 1) {
+                System.out.println("Error: You must enter exactly one character.");
+                continue;
+            }
+
+            return input.charAt(0);
+        }
+    }
+
+
+    /**
      * Reads the dimensions of a matrix (rows and columns).
      * @return Array with [rows, columns]
      */
