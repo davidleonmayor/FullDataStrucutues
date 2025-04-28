@@ -1,23 +1,33 @@
 package com.david.study.semester2.algoritmosDeOrdenamiento;
 
-// Para los algoritmos cuadraticos este es el mejor. Ya que puede llegar a ser lineal. y en el peor es cuadratico
-// Mejora de insercion pero con saltos de elementos para compararlo. El primer salto sera la longitud de la lista sobre 2,
+/**
+ * El ordenamiento Shell mejora la inserción comparando elementos
+ * separados por un salto. El salto se va reduciendo hasta llegar a 1.
+ */
 public class Shell {
     public int[] shell(int[] listaDesordenada) {
-        for (int salto = listaDesordenada.length/2; salto > 0; salto/=2) {
-            for (int i = salto; i<listaDesordenada.length; i++) {
-                int temporal;
-                if(listaDesordenada[i-salto] > listaDesordenada[i]) {
-                    temporal = listaDesordenada[i];
-                    listaDesordenada[i] = listaDesordenada[i-salto];
-                    listaDesordenada[i-salto] = temporal;
+        // Empezamos con un salto de la mitad del tamaño
+        for (int salto = listaDesordenada.length / 2; salto > 0; salto /= 2) {
+            // Recorremos los elementos a partir del salto
+            for (int i = salto; i < listaDesordenada.length; i++) {
+                int temporal = listaDesordenada[i];
+                int j = i;
 
+                // Mover los elementos mayores al salto hacia adelante
+                while (j >= salto && listaDesordenada[j - salto] > temporal) {
+                    listaDesordenada[j] = listaDesordenada[j - salto];
+                    j -= salto;
                 }
+
+                // Insertar el elemento en su lugar
+                listaDesordenada[j] = temporal;
             }
 
-            for (int i=0; i<listaDesordenada.length; i++) {
-                System.out.println(" " + listaDesordenada[i]);
+            // Imprimir el estado después de cada salto
+            for (int i = 0; i < listaDesordenada.length; i++) {
+                System.out.print(" " + listaDesordenada[i]);
             }
+            System.out.println();
         }
 
         return listaDesordenada;

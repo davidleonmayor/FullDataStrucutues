@@ -1,47 +1,36 @@
 package com.david.study.semester2.algoritmosDeOrdenamiento;
 
 /**
- * Comb Sort es una mejora del método de Burbuja. En lugar de comparar solo elementos adyacentes,
- * compara elementos separados por una cierta distancia. Esa distancia se reduce
- * gradualmente usando un factor de contracción (normalmente 1.3) hasta llegar a 1,
- * donde se comporta como el algoritmo burbuja.
- *
- * Complejidad:
- * - Mejor caso: O(n log n)
- * - Peor caso: O(n^2)
- * - Promedio: O(n log n)
+ * Comb Sort mejora el Burbuja comparando elementos con cierta distancia (gap) entre ellos.
+ * Esa distancia disminuye poco a poco hasta llegar a 1, donde termina de ordenar como Burbuja.
  */
 public class CombSortOPeine {
-    // Función principal que ordena un arreglo usando Comb Sort
     public static void combSort(int[] arr) {
         int n = arr.length;
+        int gap = n; // Inicialmente el gap es el tamaño del arreglo
+        boolean huboIntercambio = true; // Para saber si se hicieron cambios
 
-        // Inicialmente el gap es igual al tamaño del arreglo
-        int gap = n;
-
-        // Flag para saber si hubo algún intercambio
-        boolean huboIntercambio = true;
-
-        // Se repite mientras el gap sea mayor a 1 o aún se estén haciendo intercambios
+        // Continuamos mientras el gap sea mayor a 1 o haya intercambios
         while (gap > 1 || huboIntercambio) {
             // Reducimos el gap usando el factor de contracción (1.3)
             gap = (int)(gap / 1.3);
+
+            // Asegurarnos que el gap no sea menor a 1
             if (gap < 1) {
-                gap = 1; // Mínimo gap permitido es 1
+                gap = 1;
             }
 
-            huboIntercambio = false;
+            huboIntercambio = false; // Reiniciamos el flag
 
-            // Comparar y cambiar elementos separados por el gap
+            // Comparamos elementos separados por el gap
             for (int i = 0; i + gap < n; i++) {
+                // Si están en el orden incorrecto, los intercambiamos
                 if (arr[i] > arr[i + gap]) {
-                    // Intercambiamos los elementos si están desordenados
                     int temp = arr[i];
                     arr[i] = arr[i + gap];
                     arr[i + gap] = temp;
 
-                    // Marcamos que sí hubo intercambio
-                    huboIntercambio = true;
+                    huboIntercambio = true; // Hubo intercambio
                 }
             }
         }
