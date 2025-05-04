@@ -42,4 +42,40 @@ public class MetodoPila {
             auxiliar = auxiliar.getSigiente();
         }
     }
+
+    /**
+     * Busca un valor en la pila.
+     * @param valor el entero a buscar
+     * @return true si lo encuentra, false si no
+     */
+    public boolean buscar(int valor) {
+        Nodo actual = inicio;
+        while (actual != null) {
+            if (actual.getValor() == valor) {
+                return true;
+            }
+            actual = actual.getSigiente();
+        }
+        return false;
+    }
+
+
+    /**
+     * Busca un valor y devuelve su posición desde el tope (1-based).
+     * @param valor el entero a buscar
+     * @return posición si lo encuentra, o -1 si no
+     */
+    public int buscarPosicion(int valor) {
+        Nodo actual = inicio;
+        int posicion = 1;
+        while (actual != null) {
+            if (actual.getValor() == valor) {
+                return posicion;
+            }
+            actual = actual.getSigiente();
+            posicion++;
+        }
+        return -1;
+    }
+
 }
