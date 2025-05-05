@@ -1,4 +1,6 @@
-package com.david.study.semester2.corte3.datosAbstractos;
+package com.david.study.semester2.corte3.datosAbstractos.pila;
+
+import com.david.study.semester2.corte3.datosAbstractos.Nodo;
 
 public class MetodoPila {
     private Nodo inicio;
