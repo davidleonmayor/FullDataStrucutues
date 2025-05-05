@@ -4,35 +4,25 @@ import com.david.study.utils.Insert;
 
 public class Homework {
     public void test1() {
+        // Insert quality to know how much
         int quality = Insert.readInteger(false); // just positive numbers
+        // if quality is equal to zero, the result is one and end the execution
         if (quality == 0) {
             System.out.println("Result: 1");
             return;
         }
 
-        System.out.println(factorial(quality));
+        // else execute the factorial function
+        System.out.println(RecUtils.factorial(quality));
     }
-    // return a fact respect a number
-    private int factorial (int num) {
-        if (num == 0 || num == 1) return 1; // Base case for 0 and 1
-        return num * factorial(num - 1);
-    }
-
 
     // 2. Leer  un número entero y  calcular la sumatoria hasta el  numero leído.
     public void test2() {
+        // Insert quality to know how much
         int amount = Insert.readInteger(false);
-        System.out.println("Sum: " + sumOfIntegerValues(amount));
+        System.out.println("Sum: " + RecUtils.sumOfIntegerValues(amount));
     }
-    private int sumOfIntegerValues(int amount) {
-        if (amount == 0) return 0;
 
-        if (amount > 0) {
-            return amount + sumOfIntegerValues(amount - 1);
-        } else {
-            return amount + sumOfIntegerValues(amount + 1);
-        }
-    }
 
     //3.Leer un valor entero y calcular la sumatoria 1 + ½ +1/3+ … 1/n.
     public void test3() {
@@ -80,16 +70,7 @@ public class Homework {
         int exp = Insert.readInteger("Expo: ");
         System.out.println(sq(base, exp));
     }
-//    private int sq(int base, int exp) {
-//        if (exp == 0) return 1;
-//        if (exp < 1) {
-//            System.out.println(1/base);
-//            return 1/base * sq(base, exp + 1); // 3 * 3 * 3
-//        }
-//        else {
-//            return base * sq(base, exp -1 ); // 3 * 3 * 3
-//        }
-//    }
+
     private double sq(int base, int exp) {
         if (exp == 0) return 1;
 
@@ -153,7 +134,7 @@ public class Homework {
     }
 
     // 10. Leer n valores enteros, almacenarlos en un arreglo y realizar la suma de los elementos del vector.
-    private int sumItemsVector(int n, int suma) {
+    public int sumItemsVector(int n, int suma) {
         // Caso base: si no hay más números que leer
         if (n == 0) return suma;
 
@@ -164,7 +145,7 @@ public class Homework {
     }
 
     // 11. Crear una matriz de tamaño mXn y sumar los elementos
-    private int sumMatrix(int rows, int cols, int currentRow, int currentCol, int sum) {
+    public int sumMatrix(int rows, int cols, int currentRow, int currentCol, int sum) {
         if (currentRow == rows) return sum;
 
         int num = Insert.readInteger("Matriz[" + currentRow + "][" + currentCol + "]: ");
@@ -183,7 +164,7 @@ public class Homework {
         if (n == 1) return 1;
         return fibonacci(n - 1) + fibonacci(n - 2);
     }
-    private void printFibonacciUpTo(int limit, int index) {
+    public void printFibonacciUpTo(int limit, int index) {
         int fib = fibonacci(index);
         if (fib > limit) return;
 
@@ -192,40 +173,9 @@ public class Homework {
     }
 
     // 13. Función de Ackermann
-    private int ackermann(int m, int n) {
+    public int ackermann(int m, int n) {
         if (m == 0) return n + 1;
         if (n == 0) return ackermann(m - 1, 1);
         return ackermann(m - 1, ackermann(m, n - 1));
-    }
-
-
-    public static void main(String[] args) {
-        Homework homework = new Homework();
-        //homework.test1();
-        //homework.test2();
-        //homework.test3();
-        //homework.test4();
-        //homework.test5();
-        //homework.test6();
-        //homework.test7();
-        // homework.test8();
-
-        System.out.println("Leer 2 números enteros y realizar  la multiplicación de los 2 números mediante sumas sucesivas \n");
-        //System.out.println("Resultado: " + homework.multiplicar(Insert.readInteger(), Insert.readInteger()));
-
-        System.out.println("10. Leer n valores enteros, almacenarlos en un arreglo y realizar la suma de los elementos del vector. \n");
-        System.out.println("Resultado: " + homework.sumItemsVector(Insert.readInteger(), Insert.readInteger()));
-
-        System.out.println("11. Suma de elementos de una matriz:");
-        int filas = Insert.readInteger("Filas: "), columnas = Insert.readInteger("Columnas: ");
-        System.out.println("Suma total: " + homework.sumMatrix(filas, columnas, 0, 0, 0));
-
-        System.out.println("\n12. Serie de Fibonacci hasta un valor límite:");
-        int limite = Insert.readInteger("Limite: ");
-        homework.printFibonacciUpTo(limite, 0);
-
-        System.out.println("\n\n13. Función de Ackermann:");
-        int m = Insert.readInteger("m: "), n = Insert.readInteger("n: ");
-        System.out.println("Ackermann(" + m + ", " + n + ") = " + homework.ackermann(m, n));
     }
 }
