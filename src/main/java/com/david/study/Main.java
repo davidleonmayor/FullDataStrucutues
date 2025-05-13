@@ -4,8 +4,8 @@ package com.david.study;
 //import com.david.study.semester2.algoritmosDeOrdenamiento.Seleccion;
 //import com.david.study.semester2.algoritmosDeOrdenamiento.Shell;
 
-import com.david.study.semester2.algorimtosDeBusqueda.BusquedaBinaria;
-import com.david.study.semester2.juegoAhorcado.Juego;
+import com.david.study.corte2.algorimtosDeBusqueda.BusquedaBinaria;
+import com.david.study.corte2.juegoAhorcado.Juego;
 
 public class Main {
     public static void main(String[] args) {
