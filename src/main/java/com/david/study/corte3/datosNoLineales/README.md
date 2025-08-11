@@ -1,0 +1,1 @@
+# The no-lineal data structures is one where only just not existe a unique path to arrive to a element.
